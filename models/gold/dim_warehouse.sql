@@ -1,0 +1,17 @@
+-- models/gold/dim_warehouse.sql
+
+{{ config(
+    materialized='table',
+    alias='DIM_WAREHOUSE'
+) }}
+
+SELECT DISTINCT
+    WAREHOUSE_NAME,
+    CITY_NAME,
+    STATE_NAME,
+    REGION
+FROM {{ ref('warehouse_locations') }}
+QUALIFY ROW_NUMBER() OVER (
+    PARTITION BY WAREHOUSE_NAME, CITY_NAME
+    ORDER BY INGESTION_TS DESC
+) = 1
