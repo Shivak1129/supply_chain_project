@@ -1,0 +1,63 @@
+version: 2
+
+description: >
+  This dbt project is designed to build a supply chain analytics platform on Snowflake.
+  It uses a multi-layer architecture (Raw → Silver → Gold) and supports raw ingestion, SCD2 snapshots, 
+  star schema modeling, and post-hook audit logging for analytical reporting.
+
+models:
+
+  # Gold Layer
+  - name: fact_customer_order
+    description: "Fact table recording transactional customer order details including quantities, pricing, and warehouse info."
+
+  - name: dim_item
+    description: "Dimension table for item metadata with fuel classification, variant info, and category tagging."
+
+  - name: dim_customer
+    description: "Dimension table with enriched customer data for analytical use cases like segmentation and churn analysis."
+
+  - name: dim_date
+    description: "Standard date dimension table to support time-based slicing and reporting."
+
+  - name: dim_warehouse
+    description: "Dimension table containing standardized warehouse metadata for mapping and performance tracking."
+
+  - name: customer_order_final_view
+    description: "Final view combining fact and dimension tables to support comprehensive customer order analysis."
+
+  - name: top_items_by_quantity
+    description: "View showcasing top 20 best-selling items based on total quantity sold."
+
+  - name: warehouse_count_by_region
+    description: "Aggregated view showing number of warehouses grouped by geographic region."
+
+  - name: weekly_sales_summary
+    description: "Summarized weekly sales data by product and region to support trend and performance analysis."
+
+
+macros:
+  - name: copy_into_customer_order
+    description: "Macro to copy staged raw customer orders into raw layer."
+
+  - name: copy_into_inventory
+    description: "Macro to copy inventory data into raw item inventory table."
+
+  - name: generate_schema_name
+    description: "Macro to dynamically generate schema names based on environment."
+
+  - name: log_model_execution
+    description: "Macro to log the execution of models into an audit table."
+
+tests:
+  - name: test_column_length_is
+    description: "Custom generic test to validate column value length."
+
+  - name: test_duplicate_check
+    description: "Generic test to validate duplicate records based on business keys."
+
+  - name: test_no_special_chars
+    description: "Generic test to ensure no special characters exist in specified columns."
+
+  - name: test_valid_email_format
+    description: "Generic test to validate the format of email addresses."

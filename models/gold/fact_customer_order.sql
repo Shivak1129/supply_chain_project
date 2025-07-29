@@ -1,7 +1,7 @@
 -- models/gold/fact_customer_order.sql
 
 {{ config(
-    materialized='table',
+   tags=['gold'],
     alias='FACT_CUSTOMER_ORDER'
 ) }}
 

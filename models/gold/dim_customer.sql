@@ -1,8 +1,8 @@
 -- models/gold/dim_customer.sql
 
 {{ config(
-    materialized='table',
-    alias='DIM_CUSTOMER'
+    alias='DIM_CUSTOMER',
+     tags=['gold']
 ) }}
 
 SELECT DISTINCT

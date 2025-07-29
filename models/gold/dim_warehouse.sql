@@ -1,7 +1,7 @@
 -- models/gold/dim_warehouse.sql
 
 {{ config(
-    materialized='table',
+    tags=['gold'],
     alias='DIM_WAREHOUSE'
 ) }}
 

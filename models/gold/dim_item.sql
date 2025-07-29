@@ -1,7 +1,7 @@
 -- models/gold/dim_item.sql
 
 {{ config(
-    materialized='table',
+     tags=['gold'],
     alias='DIM_ITEM'
 ) }}
 

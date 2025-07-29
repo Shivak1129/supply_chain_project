@@ -1,7 +1,9 @@
 {{ config(
-    materialized='table',
+     tags=['gold'],
     alias='DIM_DATE'
 ) }}
+
+
 
 -- Find the minimum order date
 WITH min_date AS (
