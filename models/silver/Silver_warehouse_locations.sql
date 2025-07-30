@@ -17,4 +17,4 @@ SELECT
     REGION,
     WAREHOUSE_NAME,
     CURRENT_TIMESTAMP AS INGESTION_TS
-FROM {{ src.database }}.{{ target.schema }}_{{ src.schema }}.{{ src.identifier }}
+FROM {{ target.database }}.{{ target.schema }}_{{ src.schema }}.{{ src.identifier }}

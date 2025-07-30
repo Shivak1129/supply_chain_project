@@ -3,7 +3,6 @@ version: 2
 sources:
   - name: orders
     schema: landing
-    database: supply_chain
     description: "Contains customer order data ingested into the landing layer."
     tables:
       - name: cust_order
@@ -12,7 +11,6 @@ sources:
 
   - name: items
     schema: landing
-    database: supply_chain
     description: "Holds item inventory data in the landing layer."
     tables:
       - name: inventory
@@ -21,7 +19,6 @@ sources:
 
   - name: warehouse_loc
     schema: raw
-    database: supply_chain
     description: "Provides raw data related to warehouse locations."
     tables:
       - name: warehouse
