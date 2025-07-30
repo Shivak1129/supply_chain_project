@@ -2,7 +2,6 @@
 {% snapshot item_inventory_snapshot  %}
 {{
     config(
-      target_database='supply_chain',
       unique_key='ITEM_ID',
       strategy='check',
       tags=['silver']  ,
