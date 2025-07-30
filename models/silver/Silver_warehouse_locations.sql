@@ -6,7 +6,7 @@
     tags=['silver'],
     on_schema_change='sync_all_columns',
     incremental_strategy='merge',
-    merge_update_columns = ['CITY_NAME', 'STATE_NAME', 'REGION', 'INGESTION_TS']
+    merge_update_columns = ['CITY_NAME', 'STATE_NAME', 'REGION']
 ) }}
 
 {% set src = source('warehouse_loc', 'warehouse') %}

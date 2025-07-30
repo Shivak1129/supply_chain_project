@@ -2,7 +2,8 @@
 
 {{ config(
     materialized='view',
-    alias='CUSTOMER_ORDER_GOLD_VIEW'
+    alias='CUSTOMER_ORDER_GOLD_VIEW',
+    tags=['gold']
 ) }}
 
 WITH fact AS (
