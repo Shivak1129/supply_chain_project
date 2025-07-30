@@ -5,6 +5,7 @@
       target_database='supply_chain',
       unique_key='ITEM_ID',
       strategy='check',
+      tags=['silver']  ,
       check_cols=[
         'ITEM_ID',
         'ITEM_NAME',

@@ -1,4 +1,4 @@
--- models/gold/dim_warehouse.sql
+-- depends_on: {{ ref('warehouse_locations') }}
 
 {{ config(
     tags=['gold'],
@@ -13,5 +13,5 @@ SELECT DISTINCT
 FROM {{ ref('warehouse_locations') }}
 QUALIFY ROW_NUMBER() OVER (
     PARTITION BY WAREHOUSE_NAME, CITY_NAME
-    ORDER BY INGESTION_TS DESC
+    ORDER BY ingestion_ts DESC
 ) = 1

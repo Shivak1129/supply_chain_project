@@ -3,6 +3,7 @@
     config(
       unique_key='order_id',
       strategy='check',
+      tags=['silver']  ,
       check_cols=[
         'line_num',
         'customer_id',
