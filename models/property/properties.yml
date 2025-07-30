@@ -23,14 +23,14 @@ models:
           - not_null
           - valid_email_format:
               severity: warn
-              tags: ['Raw_QA']
+              tags: [raw] 
       - name: customer_phone
         description: "Phone number of the customer; should be 10 digits."
         tests:
           - not_null
           - column_length_is:
               expected_length: 10
-              tags: ['Raw_QA']
+              tags: [raw] 
       - name: quantity
         description: "Quantity of items in the order."
         tests:
@@ -71,4 +71,4 @@ snapshots:
     tests:
       - no_special_chars:
           column_names: ["customer_name", "city_name", "item_name", "fuel_type"]
-          tags: ['Silver_QA']
+          tags: ['silver']
