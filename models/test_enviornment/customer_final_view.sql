@@ -1,9 +1,6 @@
 {{ config(
     materialized='view',
-    alias='CUSTOMER_ORDER_GOLD_VIEW',
-    database=env_var('DBT_DATABASE', 'default_db'),
-    schema=env_var('DBT_SCHEMA', 'default_schema'),
-    tags=['test_envi']
+    alias='CUSTOMER_ORDER_GOLD_VIEW'
 ) }}
 
 

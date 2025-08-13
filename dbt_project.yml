@@ -48,7 +48,9 @@ models:
       +schema: gold
     test_enviornment:
       +materialized: table
-      +tags: test_envi
+      +tags: ["test_envi"]
+      +database: "{{ env_var('DBT_DATABASE', 'default_db') }}"
+      +schema: "{{ env_var('DBT_SCHEMA', 'default_schema') }}"
 seeds:
   my_new_project:  # Replace with your actual dbt project name
     warehouse_locations:
