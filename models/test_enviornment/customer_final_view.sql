@@ -6,6 +6,7 @@
     tags=['test_envi']
 ) }}
 
+
 WITH fact AS (
     SELECT *
     FROM {{ ref('fact_customer_order') }}
