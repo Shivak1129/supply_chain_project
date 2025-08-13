@@ -46,6 +46,9 @@ models:
     gold:
       +materialized: table
       +schema: gold
+    test_enviornment:
+      +materialized: table
+      +tags: test_envi
 seeds:
   my_new_project:  # Replace with your actual dbt project name
     warehouse_locations:
